@@ -1,100 +1,126 @@
-# ~~Minimalism~~(Deprecated)
+# Space Jekyll
 
-[![Build Status](https://travis-ci.org/showzeng/Minimalism.svg?branch=master)](https://travis-ci.org/showzeng/Minimalism)
-[![Jekyll Version](https://img.shields.io/badge/Jekyll-3.8-blue.svg)](https://jekyllrb.com/)
-[![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimalism.svg)](https://badge.fury.io/rb/jekyll-theme-minimalism)
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=popout)](./LICENSE.txt)
+A simple and elegant Jekyll theme based on Spacemacs. The theme works well on mobile devices as well.
 
-![screenshot](./docs/screenshot.png)
+See a live demo [here](https://victorvoid.github.io/space-jekyll-template/).
 
-~~Minimalism 是一款基于 Jekyll 为极简主义者打造的极简主题。你可以访问 [我的博客][blog] 或者 [主题 demo][demo] 来预览一下。~~
+![](https://github.com/victorvoid/space-jekyll-template/blob/master/screenshot.png?raw=true)
 
-> :warning: 因为觉得没有意义也没有意愿维护这个主题了，此主题已被放弃。如有需要可基于此仓库自行拓展修改。
+# Site/User Settings
 
-## 特性
-
-**V0.1.x**
-- 这款主题采用响应式布局，对各大主流浏览器做了兼容，对移动客户端做了适配
-- 支持 RSS 订阅
-- SEO 优化
-- 文章默认采用 [CC BY-NC-ND 4.0][license] 协议对著作权进行保护，支持 emoji 表情
-- 支持禁止复制、禁止右键菜单、复制附带版权声明等多种功能
-- 支持文章图片查看大图
-- 支持文章打赏 (微信、支付宝)
-- 支持评论功能 (目前支持来必力、gitment)
-- 支持站点统计 (目前支持谷歌统计、百度统计、友盟 cnzz 统计)
-- 最后且最重要的当然还是对博客文章极度的阅读体验优化
-
-## 安装
-
-在你的 `Gemfile` 文件中加入下面这一行:
+customize your site in ``_config.yml``
 
 ```ruby
-gem "jekyll-theme-minimalism"
+
+# Site settings
+description: A blog about lorem ipsum
+baseurl: "" # the subpath
+url: "" # the base hostname &/|| protocol for your site
+
+# User settings
+username: Lorem Ipsum
+user_description: Lorem Developer
+user_title: Lorem Ipsum
+email: lorem@ipsum.com
+twitter_username: loremipsum
+github_username:  loremipsum
+gplus_username:  loremipsum
+disqus_username: loremipsum
+
 ```
 
-然后使用 bundle 执行安装:
+See more about project and links in [_config.yml](./_config.yml)
 
-    $ bundle install
+## How to create a post ?
 
-或者你也可以手动下载安装:
+_posts create a file .md with structure:
 
-    $ gem install jekyll-theme-minimalism
+```md
+---
+layout: post
+title: "Lorem ipsum speak.."
+date: 2016-09-13 01:00:00
+image: '/assets/img/post-image.png'
+description: 'about tech'
+tags:
+- lorem
+- tech
+categories:
+- Lorem ipsum
+twitter_text: 'How to speak with Lorem'
+---
+```
 
-在你的配置文件 `_config.yml` 中修改启用主题 (本地预览):
+## How to insert new links on menu navigation ?
+
+![](https://github.com/victorvoid/space-jekyll-template/blob/master/src/img/menu.png)
+
+You should open `_config.yml` and change/add `links` section:
 
 ```yaml
-theme: jekyll-theme-minimalism
+links:
+  section_1: # you can use any name
+    - title: home # show on menu
+      url: / #link
+      key_trigger: 1 # link shortcut and show on the left of the title
+    - title: my posts
+      url: /posts
+      key_trigger: 2
+    - title: series
+      url: /series
+      key_trigger: 3
+    - title: tags
+      url: /tags
+      key_trigger: 4
+    - title: about me
+      url: /about
+      key_trigger: 5
 ```
 
-使用 GitHub pages 发布时，在你的配置文件 `_config.yml` 中修改启用远程主题:
+Frontend Technologies
+---------------------
+* [Gulp](https://gulpjs.com/): The streaming build system.
+* [Stylus](http://stylus-lang.com/): expressive, dynamic, robust CSS.
+* [BrowserSync](https://www.browsersync.io/): Time-saving synchronised browser testing.
+* [Rupture](https://github.com/jescalan/rupture): Simple media queries for stylus.
+* [Kouto-Swiss](http://kouto-swiss.io/): A complete CSS framework for Stylus.
+* [Jeet](http://jeet.gs/): A grid system for human.
+* [Zepto.js](http://zeptojs.com/): The aerogel-weight jQuery-compatible JavaScript library.
 
-```yaml
-# theme: jekyll-theme-minimalism
-remote_theme: showzeng/Minimalism
-```
+## How can I modify the theme ?
 
-## 使用
+First, install [jekyll](https://jekyllrb.com/) and [node.js](https://nodejs.org/).
 
-移步 [wiki] 或者查看 [demo]。
+1. Fork the theme with your username, example: `charlie.github.io`
+2. Clone repository to your computer
+3. run `npm install`
+4. run `gulp`
+5. Be happy by modifying the files
 
-## 支持
+**Space Jekyll** uses the [Stylus](http://stylus-lang.com/) to process his css, then modifies the style of the theme in [this folder](https://github.com/victorvoid/space-jekyll-template/tree/master/src/styl).
 
-如果你觉得这个主题还不错，欢迎 star 或使用。你也可以自由的 fork，基于本主题打造你自己的主题，当然，希望最好是能署名或提及本博客主题。
+You can go in the [variable.styl](https://github.com/victorvoid/space-jekyll-template/blob/master/src/styl/_variables.styl) and modify the colors. 
 
-此外你有什么好的建议、需求或者是碰到什么问题，欢迎提交 [issue]，本主题还会不断完善。
-
-## 致谢
-
-博客主题文章的文字颜色及部分排版受凯哥 [HenCoder] 网站的启发，打赏样式受 [写代码的猴子的博客][Jaeger] 的启发，特此感谢。
-
-文章图片查看大图由 [zooming](https://github.com/kingdido999/zooming) 提供支持，特此感谢。
-
-## Todo
-
-- [ ] Multilingual support (多语言支持)
-- [ ] Toc (文章索引目录)
-- [ ] Math support with LaTeX (数学公式支持)
-
-## Change log
-
-查看 [版本更新日志][Change Log]
-
-## 打赏
-
-如果主题对你有帮助，并帮你节省了一些折腾的时间，可以考虑打赏，这是对我所做工作的最大肯定。
-
-![reward.png](./docs/reward.webp)
 
 ## License
+The MIT License (MIT)
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Copyright (c) 2016 Victor Igor
 
-[blog]: https://showzeng.itscoder.com
-[demo]: https://showzeng.github.io
-[license]: https://creativecommons.org/licenses/by-nc-nd/4.0/
-[wiki]: https://github.com/showzeng/Minimalism/wiki
-[issue]: https://github.com/showzeng/Minimalism/issues/new
-[Change Log]: https://github.com/showzeng/Minimalism/wiki/Change-Log
-[HenCoder]: https://hencoder.com/
-[Jaeger]: https://jaeger.itscoder.com/
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
