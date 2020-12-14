@@ -19,7 +19,7 @@ profile_picture: https://68.media.tumblr.com/93f384858e9273d5b980b418e2f2f4d5/tu
 markdown: kramdown
 highlighter: rouge
 permalink: /:title/
-
+remote_theme: Uno with timeline
 # html minify
 compress_html:
   clippings: all
